@@ -1,0 +1,15 @@
+{
+  "name": "callback-chain",
+  "version": "1.0.0",
+  "description": "Put callback functions into a sepical function to remove flying-V",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "callback",
+    "one-line"
+  ],
+  "author": "Raphael Wang",
+  "license": "ISC"
+}
