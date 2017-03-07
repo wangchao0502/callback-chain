@@ -1,19 +1,24 @@
-const run = require('./index');
+const CC = require('./index');
 
-const funcA = (cb) => {
-    console.log('funcA is called');
-    cb && cb(value);
+const taskA = (value, next) => {
+    console.log('TaskA is called', value);
+    next();
 };
-
-const funcB = (cb) => {
+const taskB = (next) => {
     setTimeout(() => {
-        console.log('funcB is called');
-        cb && cb();
-    }, 100);    
+        console.log('TaskB is called');
+        next(200);
+    }, 100);
+};
+const taskC = (value, next) => {
+    console.log('TaskC is called', value);
+    next('hahaha');
 };
 
-const funcC = () => {
-    console.log('funcC is called');
-};
+const neuronA   = new CC.Neuron(taskA);
+const neuronB   = new CC.Neuron(taskB);
+const neuronC   = new CC.Neuron(taskC);
+const neuronNet = new CC.NeuronNet(neuronA, neuronB, neuronC);
+// const neuronNet = new CC.NeuronNet(neuronA, neuronB, neuronC, neuronA);
 
-run(funcA, funcB, funcC);
+neuronNet.in(100).out((...args) => console.log(args)).run();
