@@ -1,5 +1,5 @@
 # callback-chain
-Make callback hell one line.
+基于神经网络的任务调度系统
 
 ## TODO
-- Support passing params
+- Support Map Structure
